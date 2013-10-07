@@ -23,23 +23,27 @@
 			</g:if>
 			<ol class="property-list atividade">
 			
-				<g:if test="${atividadeInstance?.data_de_inclusao}">
-				<li class="fieldcontain">
-					<span id="data_de_inclusao-label" class="property-label"><g:message code="atividade.data_de_inclusao.label" default="Datadeinclusao" /></span>
-					
-						<span class="property-value" aria-labelledby="data_de_inclusao-label"><g:formatDate date="${atividadeInstance?.data_de_inclusao}" /></span>
-					
+						
 				</li>
-				</g:if>
-			
+							
 				<g:if test="${atividadeInstance?.nome_da_atividade}">
 				<li class="fieldcontain">
-					<span id="nome_da_atividade-label" class="property-label"><g:message code="atividade.nome_da_atividade.label" default="Nomedaatividade" /></span>
+					<span id="nome_da_atividade-label" class="property-label"><g:message code="atividade.nome_da_atividade.label" default="Nome da atividade" /></span>
 					
 						<span class="property-value" aria-labelledby="nome_da_atividade-label"><g:fieldValue bean="${atividadeInstance}" field="nome_da_atividade"/></span>
-					
-				</li>
+
+			</li>
 				</g:if>
+
+<g:if test="${atividadeInstance?.data_de_inclusao}">
+				<li class="fieldcontain">
+					<span id="data_de_inclusao-label" class="property-label"><g:message code="atividade.data_de_inclusao.label" default="Data de inclusao" /></span>
+					
+				<span class="property-value" aria-labelledby="data_de_inclusao-label"><g:formatDate format="dd/MM/yyyy" date="${atividadeInstance	.data_de_inclusao}" /></span>
+
+</g:if>			
+					
+	
 			
 			</ol>
 			<g:form url="[resource:atividadeInstance, action:'delete']" method="DELETE">
