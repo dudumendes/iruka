@@ -24,23 +24,23 @@
 			<thead>
 					<tr>
 					
-										
-						<g:sortableColumn property="nome_da_atividade" title="${message(code: 'atividade.nome_da_atividade.label', default: 'Nome da atividade')}" />
-
-<g:sortableColumn property="data_de_inclusao" title="${message(code: 'atividade.data_de_inclusao.label', default: 'Data de inclusao')}" />
-						
+						<g:sortableColumn property="data_de_inclusao" title="${message(code: 'atividade.data_de_inclusao.label', default: 'Datadeinclusao')}" />
+					
+						<th><g:message code="atividade.lista.label" default="Lista" /></th>
+					
+						<g:sortableColumn property="nome_da_atividade" title="${message(code: 'atividade.nome_da_atividade.label', default: 'Nomedaatividade')}" />
+					
 					</tr>
 				</thead>
 				<tbody>
 				<g:each in="${atividadeInstanceList}" status="i" var="atividadeInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-
-<td><g:link action="show" id="${atividadeInstance.id}">${fieldValue(bean: atividadeInstance, field: "nome_da_atividade")}</g:link></td>
-								
-								
-						<td>
-<g:formatDate format="dd/MM/yyyy" date="${atividadeInstance.data_de_inclusao }"/>
-</td>
+					
+						<td><g:link action="show" id="${atividadeInstance.id}">${fieldValue(bean: atividadeInstance, field: "data_de_inclusao")}</g:link></td>
+					
+						<td>${fieldValue(bean: atividadeInstance, field: "lista")}</td>
+					
+						<td>${fieldValue(bean: atividadeInstance, field: "nome_da_atividade")}</td>
 					
 					</tr>
 				</g:each>
