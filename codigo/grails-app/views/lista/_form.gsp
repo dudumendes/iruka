@@ -19,19 +19,22 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: listaInstance, field: 'data_de_inclusao', 'error')} required">
-	<label for="data_de_inclusao">
-		<g:message code="lista.data_de_inclusao.label" default="Datadeinclusao" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:datePicker name="data_de_inclusao" precision="day"  value="${listaInstance?.data_de_inclusao}"  />
-</div>
+
 
 <div class="fieldcontain ${hasErrors(bean: listaInstance, field: 'nome_Lista', 'error')} ">
 	<label for="nome_Lista">
-		<g:message code="lista.nome_Lista.label" default="Nome Lista" />
+		<g:message code="lista.nome_Lista.label" default="Nome da Lista" />
 		
 	</label>
 	<g:textField name="nome_Lista" value="${listaInstance?.nome_Lista}"/>
 </div>
 
+
+
+<div class="fieldcontain ${hasErrors(bean: listaInstance, field: 'data_de_inclusao', 'error')} required">
+	<label for="data_de_inclusao">
+		<g:message code="lista.data_de_inclusao.label" default="Data de inclusao" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:datePicker name="data_de_inclusao" precision="day"  value="${listaInstance?.data_de_inclusao}"  />
+</div>

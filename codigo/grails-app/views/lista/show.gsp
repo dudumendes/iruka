@@ -34,20 +34,20 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${listaInstance?.data_de_inclusao}">
+								<g:if test="${listaInstance?.nome_Lista}">
 				<li class="fieldcontain">
-					<span id="data_de_inclusao-label" class="property-label"><g:message code="lista.data_de_inclusao.label" default="Datadeinclusao" /></span>
+					<span id="nome_Lista-label" class="property-label"><g:message code="lista.nome_Lista.label" default="Nome da  Lista" /></span>
 					
-						<span class="property-value" aria-labelledby="data_de_inclusao-label"><g:formatDate date="${listaInstance?.data_de_inclusao}" /></span>
+						<span class="property-value" aria-labelledby="nome_Lista-label"><g:fieldValue bean="${listaInstance}" field="nome_Lista"/></span>
 					
 				</li>
 				</g:if>
 			
-				<g:if test="${listaInstance?.nome_Lista}">
+<g:if test="${listaInstance?.data_de_inclusao}">
 				<li class="fieldcontain">
-					<span id="nome_Lista-label" class="property-label"><g:message code="lista.nome_Lista.label" default="Nome Lista" /></span>
+					<span id="data_de_inclusao-label" class="property-label"><g:message code="lista.data_de_inclusao.label" default="Data de inclusao" /></span>
 					
-						<span class="property-value" aria-labelledby="nome_Lista-label"><g:fieldValue bean="${listaInstance}" field="nome_Lista"/></span>
+						<span class="property-value" aria-labelledby="data_de_inclusao-label"><g:formatDate format="dd/MM/yyyy" date="${listaInstance.data_de_inclusao}"/></span>
 					
 				</li>
 				</g:if>
@@ -56,7 +56,7 @@
 			<g:form url="[resource:listaInstance, action:'delete']" method="DELETE">
 				<fieldset class="buttons">
 					<g:link class="edit" action="edit" resource="${listaInstance}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
-					<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+					<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'voce tem certeza que deseja deletar?')}');" />
 				</fieldset>
 			</g:form>
 		</div>
