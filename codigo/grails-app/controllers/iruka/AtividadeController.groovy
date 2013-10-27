@@ -10,12 +10,19 @@ class AtividadeController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
-    def index(Integer max) {
+    def alterarestado(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond Atividade.list(params), model:[atividadeInstanceCount: Atividade.count()]
     }
 
-    def show(Atividade atividadeInstance) {
+ 
+def index(Integer max) {
+        params.max = Math.min(max ?: 10, 100)
+        respond Atividade.list(params), model:[atividadeInstanceCount: Atividade.count()]
+    } 
+
+
+   def show(Atividade atividadeInstance) {
         respond atividadeInstance
     }
 
