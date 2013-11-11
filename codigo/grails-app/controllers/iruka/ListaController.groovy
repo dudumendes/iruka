@@ -10,6 +10,34 @@ class ListaController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+ @Transactional
+def atualizarlista()
+{
+for ( at in params.realizada )
+ {
+ 
+def atividade=Atividade.findById(at)
+
+
+atividade.setRealizada(true) 
+println atividade.realizada
+atividade.save flush:true
+
+}
+
+
+    
+
+redirect action: "show", method: "GET"	
+
+
+
+}
+
+
+
+
+
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond Lista.list(params), model:[listaInstanceCount: Lista.count()]

@@ -1,5 +1,5 @@
 
-<%@ page import="iruka.Lista" %>
+<%@ pae import="iruka.Lista" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -17,48 +17,40 @@
 			</ul>
 		</div>
 		<div id="show-lista" class="content scaffold-show" role="main">
-			<h1><g:message code="default.show.label" args="[entityName]" /></h1>
+<g:form url="[resource:listaInstance, action:'atualizarlista']" method="PUT" >
+
+			<h1><g:fieldValue bean="${listaInstance}" field="nome_Lista"/> - <g:formatDate format="dd/MM/yyyy" date="${listaInstance.data_de_inclusao}"/></h1>
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
 			<ol class="property-list lista">
+
 			
 				<g:if test="${listaInstance?.atividade}">
-				<li class="fieldcontain">
+				
+:<li class="fieldcontain">
 					<span id="atividade-label" class="property-label"><g:message code="lista.atividade.label" default="Atividade" /></span>
+
+${fieldValue(bean: atividadeInstance, field: "nome_da_atividade")}
+
+
 					
 						<g:each in="${listaInstance.atividade}" var="a">
-						<span class="property-value" aria-labelledby="atividade-label"><g:link controller="atividade" action="show" id="${a.id}">${a?.encodeAsHTML()}</g:link></span>
-						</g:each>
+<span class="property-value" aria-labelledby="atividade-label">${a?.encodeAsHTML()}
+
+
+<g:checkBox name="realizada" value="${a.id}"  checked="${false}"/>
+	
+</span>		</g:each>
+
+<g:submitButton name="update" value="Atualizar" />
 					
 				</li>
 				</g:if>
 			
-								<g:if test="${listaInstance?.nome_Lista}">
-				<li class="fieldcontain">
-					<span id="nome_Lista-label" class="property-label"><g:message code="lista.nome_Lista.label" default="Nome da  Lista" /></span>
-					
-						<span class="property-value" aria-labelledby="nome_Lista-label"><g:fieldValue bean="${listaInstance}" field="nome_Lista"/></span>
-					
-				</li>
-				</g:if>
-			
-<g:if test="${listaInstance?.data_de_inclusao}">
-				<li class="fieldcontain">
-					<span id="data_de_inclusao-label" class="property-label"><g:message code="lista.data_de_inclusao.label" default="Data de inclusao" /></span>
-					
-						<span class="property-value" aria-labelledby="data_de_inclusao-label"><g:formatDate format="dd/MM/yyyy" date="${listaInstance.data_de_inclusao}"/></span>
-					
-				</li>
-				</g:if>
-			
-			</ol>
-			<g:form url="[resource:listaInstance, action:'delete']" method="DELETE">
-				<fieldset class="buttons">
-					<g:link class="edit" action="edit" resource="${listaInstance}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
-					<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'voce tem certeza que deseja deletar?')}');" />
-				</fieldset>
-			</g:form>
+								
+								
+						</g:form>
 		</div>
 	</body>
 </html>
