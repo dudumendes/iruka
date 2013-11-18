@@ -24,7 +24,7 @@
 			<thead>
 					<tr>
 					
-						<		
+								
 						<g:sortableColumn property="nome_Lista" title="${message(code: 'lista.nome_Lista.label', default: 'Nome da Lista')}" />
 
 <g:sortableColumn property="data_de_inclusao" title="${message(code: 'lista.data_de_inclusao.label', default: 'Data de inclusao')}" />

@@ -1,5 +1,5 @@
 
-<%@ pae import="iruka.Lista" %>
+<%@ page import="iruka.Lista" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -20,6 +20,8 @@
 <g:form url="[resource:listaInstance, action:'atualizarlista']" method="PUT" >
 
 			<h1><g:fieldValue bean="${listaInstance}" field="nome_Lista"/> - <g:formatDate format="dd/MM/yyyy" date="${listaInstance.data_de_inclusao}"/></h1>
+<g:link controller="atividade" action="create" params="['lista.id': listaInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'atividade.label', default: 'Atividade')])}</g:link>
+
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
@@ -28,14 +30,19 @@
 			
 				<g:if test="${listaInstance?.atividade}">
 				
-:<li class="fieldcontain">
+<li class="fieldcontain">
 					<span id="atividade-label" class="property-label"><g:message code="lista.atividade.label" default="Atividade" /></span>
 
 ${fieldValue(bean: atividadeInstance, field: "nome_da_atividade")}
 
 
+
 					
 						<g:each in="${listaInstance.atividade}" var="a">
+
+
+
+
 <g:if test="${a.realizada==false}" >
 <span class="property-value" aria-labelledby="atividade-label">${a?.encodeAsHTML()}
 
@@ -44,8 +51,12 @@ ${fieldValue(bean: atividadeInstance, field: "nome_da_atividade")}
 	
 </span>
 </g:if>		</g:each>
+<g:if test="${comAtividade}">
+
+
 
 <g:submitButton name="update" value="Atualizar" />
+</g:if>
 					
 				</li>
 				</g:if>

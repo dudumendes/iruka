@@ -46,7 +46,8 @@ redirect action: "show", method: "GET",id:listaInstance.id
     }
 
     def show(Lista listaInstance) {
-        respond listaInstance
+        respond model:[listaInstance:listaInstance,comAtividade:Atividade.findByListaAndRealizada(listaInstance,false)] 
+
     }
 
     def create() {
