@@ -36,12 +36,14 @@ ${fieldValue(bean: atividadeInstance, field: "nome_da_atividade")}
 
 					
 						<g:each in="${listaInstance.atividade}" var="a">
+<g:if test="${a.realizada==false}" >
 <span class="property-value" aria-labelledby="atividade-label">${a?.encodeAsHTML()}
 
 
 <g:checkBox name="realizada" value="${a.id}"  checked="${false}"/>
 	
-</span>		</g:each>
+</span>
+</g:if>		</g:each>
 
 <g:submitButton name="update" value="Atualizar" />
 					
@@ -50,7 +52,7 @@ ${fieldValue(bean: atividadeInstance, field: "nome_da_atividade")}
 			
 								
 								
-						</g:form>
+<g:hiddenField name="listaInstance.id" value="${listaInstance.id}" />						</g:form>
 		</div>
 	</body>
 </html>

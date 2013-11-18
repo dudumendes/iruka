@@ -1,4 +1,4 @@
-package iruka
+ package iruka
 
 
 
@@ -11,7 +11,7 @@ class ListaController {
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
  @Transactional
-def atualizarlista()
+def atualizarlista(Lista listaInstance)
 {
 for ( at in params.realizada )
  {
@@ -19,8 +19,10 @@ for ( at in params.realizada )
 def atividade=Atividade.findById(at)
 
 
-atividade.setRealizada(true) 
+atividade.setRealizada(true)
+
 println atividade.realizada
+ 
 atividade.save flush:true
 
 }
@@ -28,7 +30,7 @@ atividade.save flush:true
 
     
 
-redirect action: "show", method: "GET"	
+redirect action: "show", method: "GET",id:listaInstance.id
 
 
 
