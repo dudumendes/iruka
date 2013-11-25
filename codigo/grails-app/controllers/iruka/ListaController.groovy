@@ -36,6 +36,14 @@ redirect action: "show", method: "GET",id:listaInstance.id
 
 }
 
+def exibirAtividades(Lista listaInstance) {
+def lista = Lista.findById(params.id)
+def atividadeInstanceList=Atividade.findByLista(lista)
+      respond listaInstance,model:[atividadeInstanceList:atividadeInstanceList]
+}
+
+
+
 
 
 
@@ -46,8 +54,7 @@ redirect action: "show", method: "GET",id:listaInstance.id
     }
 
     def show(Lista listaInstance) {
-        respond model:[listaInstance:listaInstance,comAtividade:Atividade.findByListaAndRealizada(listaInstance,false)] 
-
+      respond listaInstance, model:[comAtividade:Atividade.findByListaAndRealizada(listaInstance,false)] 
     }
 
     def create() {

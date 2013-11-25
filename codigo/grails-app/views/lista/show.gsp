@@ -21,6 +21,11 @@
 
 			<h1><g:fieldValue bean="${listaInstance}" field="nome_Lista"/> - <g:formatDate format="dd/MM/yyyy" date="${listaInstance.data_de_inclusao}"/></h1>
 <g:link controller="atividade" action="create" params="['lista.id': listaInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'atividade.label', default: 'Atividade')])}</g:link>
+<br> </br>
+
+<g:link controller="lista" action="exibirAtividades"
+id="${listaInstance?.id}">Listar Atividades</g:link>
+
 
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>

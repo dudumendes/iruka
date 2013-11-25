@@ -12,7 +12,7 @@ hibernate {
 environments {
     development {
         dataSource {
-            dbCreate = "create" // one of 'update', 'create-drop','update'
+            dbCreate = "update" // one of 'update', 'create-drop','update'
             url = "jdbc:mysql://localhost/iruka?useUnicode=yes&characterEncoding=UTF-8"
             username = "root"
             password = ""
