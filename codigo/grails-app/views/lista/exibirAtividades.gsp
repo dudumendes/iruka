@@ -31,6 +31,9 @@
 					
 	
 <g:sortableColumn property="data_de_inclusao" title="${message(code: 'atividade.data_de_inclusao.label', default: 'Data de inclusao')}" />
+
+<g:sortableColumn property="realizada" title="${message(code: 'atividade.realizada.label', default: 'Status')}" />
+
  								
 					</tr>
 				</thead>
@@ -38,16 +41,30 @@
 				<g:each in="${atividadeInstanceList}" status="i" var="atividadeInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${atividadeInstance.id}">${fieldValue(bean: atividadeInstance, field: "nome_da_atividade")}</g:link></td>
+						<td>${fieldValue(bean: atividadeInstance, field: "nome_da_atividade")}</td>
 					
 						<td>${fieldValue(bean: atividadeInstance, field: "lista")}</td>
 					
 						<td><g:formatDate format="dd/MM/yyyy" date="${atividadeInstance.data_de_inclusao}"/>		</td>
+<td>
+<g:if test="${atividadeInstance.realizada}">
+Realizada
+</g:if>
+<g:else>
+Pendente
+</g:else>
+
+
+
+</td>
 					
 					</tr>
 				</g:each>
+
 				</tbody>
 			</table>
+<g:link action="" >voltar
+</g:link>
 			<div class="pagination">
 				<g:paginate total="${atividadeInstanceCount ?: 0}" />
 			</div>

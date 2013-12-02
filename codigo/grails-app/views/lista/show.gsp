@@ -70,5 +70,7 @@ ${fieldValue(bean: atividadeInstance, field: "nome_da_atividade")}
 								
 <g:hiddenField name="listaInstance.id" value="${listaInstance.id}" />						</g:form>
 		</div>
+<g:link action="" >voltar
+</g:link>
 	</body>
 </html>

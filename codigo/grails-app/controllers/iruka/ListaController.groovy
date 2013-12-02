@@ -38,7 +38,7 @@ redirect action: "show", method: "GET",id:listaInstance.id
 
 def exibirAtividades(Lista listaInstance) {
 def lista = Lista.findById(params.id)
-def atividadeInstanceList=Atividade.findByLista(lista)
+def atividadeInstanceList=Atividade.findAllByLista(lista)
       respond listaInstance,model:[atividadeInstanceList:atividadeInstanceList]
 }
 

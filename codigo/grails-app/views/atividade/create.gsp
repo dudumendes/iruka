@@ -34,5 +34,7 @@
 				</fieldset>
 			</g:form>
 		</div>
+<g:link controller="lista" action="" >voltar
+</g:link>
 	</body>
 </html>
